@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedType>
+      <Type guid="f5ec6e46-21cf-4f28-8d49-89ffe42e4084">GVL</Type>
+      <From>GVL</From>
+      <To>G_task2</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="ea31129f-1a01-4c4f-861c-0e066cae28a0">POU</Type>
+      <From>POU</From>
+      <To>P_task2</To>
+    </RenamedType>
+  </Renames>
+</Refactors>

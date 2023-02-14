@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="P_Task2" Id="{ea31129f-1a01-4c4f-861c-0e066cae28a0}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Task2
+VAR
+	fbTof:TOF;
+	fbRTrig:R_TRIG;
+	bUpdateMotorSpeed:BOOL;
+	fNewValue:REAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbTof (IN:=G_Task2.stTimer2.bTimerStart,
+	  PT:=G_Task2.stTimer2.tTimer,
+	  ET =>G_Task2.stTimer2.tEllapsedTime,
+	  Q =>G_Task2.stTimer2.bTimerOn
+	  
+	);
+
+G_Task2.fMototPosRad:=F_DegToRad(G_Task2.fMotorPosDeg);
+fbRTrig(CLK:=bUpdateMotorSpeed);
+F_UpdateParameter(bUpdateValue:=fbRTrig.Q, fNewValue:=fNewValue,stMotorParameter:=G_Task2.stMotorParametrs);
+F_UpdateParameter2(bUpdateValue:=fbRTrig.Q, fNewValue:=fNewValue,stMotorParameter:=G_Task2.stMotorParameters2);
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
